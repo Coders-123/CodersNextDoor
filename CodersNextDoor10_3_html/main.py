@@ -22,7 +22,7 @@ person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
 
 @app.route("/")
 def login():
-    return render_template("index.html")
+    return render_template("login.html")
 
 @app.route("/signup")
 def signup():
