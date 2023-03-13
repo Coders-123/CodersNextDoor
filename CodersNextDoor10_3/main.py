@@ -22,7 +22,9 @@ person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
 
 @app.route("/")
 def login():
-    return render_template("login.html")
+   
+ return render_template("login.html")
+   
 
 @app.route("/signup")
 def signup():
@@ -31,7 +33,10 @@ def signup():
 @app.route("/welcome")
 def welcome():
     if person["is_logged_in"] == True:
+       
+       
         return render_template("welcome.html", email = person["email"], name = person["name"])
+       
     else:
         return redirect(url_for('login'))
 
@@ -95,6 +100,54 @@ def register():
             return redirect(url_for('welcome'))
         else:
             return redirect(url_for('register'))
+        
+@app.route("/application", methods=["POST", "GET"]) 
+def applicationpage():
+    if request.method == "POST":
+        
+        
+        #passing of data
+        
+        
+     studemail = request.form["DUTemail"]  
+     studfname = request.form["fname"]
+     studlname = request.form["lname"]
+     studNum = request.form["Snum"]
+     studIDnum = request.form["IDnum"]
+     studcontactNo = request.form["Contact"]
+     studTAXno = request.form["tax_number"]
+     studaccholder = request.form["account_holder"]
+     studbankname = request.form["bank_name"]
+    
+    # studBranchname = request.form["branch_name"]
+    
+     studBranchCode = request.form["branch_code"]
+     studaccNo = request.form["account_number"]
+     studaccType = request.form["account_type"]
+     
+     
+      
+     studentapplication = {"Email":studemail, "Firstname":studfname, "Lastname":studlname, "Student Number": studNum, "ID Number":studIDnum, "Contact Number":studcontactNo,}
+     studentApplicationBanking = {"Tax Number"}
+     db.child("Tutors").child(person["uid"]).set(studentdata)
+     
+     
+
+     return redirect(url_for("welcome")) 
+ 
+    else:
+     return render_template("tutapplication.html")   
+
+ 
 
 if __name__ == "__main__":
     app.run() 
+    
+    
+    
+    
+    
+    ######### test to see if it writes to table with Tutor child 
+ #      studentdata = {"Age": 24, "Name": "Fred", "Tutor": True}
+        #to create data
+  #      db.child("Tutors").child(person["uid"]).set(studentdata)
