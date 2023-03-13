@@ -1,10 +1,13 @@
+<!DOCTYPE html>
 <html>
 <head>
-<title>Application Page</title>
-
+  <title>Application Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
 </head>
+
 <body>
-   <form>
+   <form class="wrapper fadeInDown">
+    <div class="fadeIn second">
       <label for="DUTemail">DUTemail:</label><br>
       <input type="text" id="DUT-email" name="DUTemail"><br>
   
@@ -22,8 +25,10 @@
   
       <label for="Contact">Contact number:</label><br>
       <input type="text" id="Contact" name="Contact"><br>
-  <p><b> Banking details: </b></p>       
-  <div>
+      
+    <div class="fadeIn third">
+      <p><b> Banking details: </b></p>       
+  
       <label for="tax-number">Tax/Personnel Number:</label><br>
       <input type="text" id="tax-number" name="tax_number"><br>
   
@@ -53,7 +58,8 @@
       <label for="account-type">Account Type:</label><br>
       <input type="text" id="account-type" name="account_type"><br>
   </div>
-
+  <input type="submit" class="fadeIn fourth">
+</div>
   </form>
 
 </body>
