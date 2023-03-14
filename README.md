@@ -6,5 +6,9 @@ Features Completed:
 
 2) Main.py
 
+3) Added tblApplications
+
+4) Reads and writes to database
+
 codersnextdoor1@gmail.com
 Password: Coders123!
