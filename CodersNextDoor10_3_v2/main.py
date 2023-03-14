@@ -1,5 +1,9 @@
 import pyrebase
 from flask import Flask, flash, redirect, render_template, request, session, abort, url_for
+from flask_mail import Mail, Message
+
+
+
 
 app=Flask(__name__)
 
@@ -101,43 +105,47 @@ def register():
         else:
             return redirect(url_for('register'))
         
-@app.route("/application", methods=["POST", "GET"]) 
+
+@app.route("/applicationconfirm")
+def applicationconfirm():
+    return render_template("applicationconfirm.html")
+
+
+
+@app.route("/application", methods = ["POST", "GET"]) 
 def applicationpage():
     if request.method == "POST":
         
         
         #passing of data
+        studemail = request.form["DUTemail"]  
+        studfname= request.form["fname"]
+        studlname=request.form["lname"]
+        studNo= request.form["Snum"]
+        studIDno=request.form["IDnum"]
+        studcontact=request.form["Contact"]
+        
+        #banking details
+        #studtaxno=request.form["tax_number"]
+        
+        studbankname= request.form["bank_name"]
+        
+        #studfile= request.files["file"]
+        
+        studentapplication={"email":studemail,"First Name":studfname,"Last Name":studlname,"Student Number":studNo, "ID Number":studIDno, "Contact Number":studcontact}
+       # StudentBankDetails={}
         
         
-     studemail = request.form["DUTemail"]  
-     studfname = request.form["fname"]
-     studlname = request.form["lname"]
-     studNum = request.form["Snum"]
-     studIDnum = request.form["IDnum"]
-     studcontactNo = request.form["Contact"]
-     studTAXno = request.form["tax_number"]
-     studaccholder = request.form["account_holder"]
-     studbankname = request.form["bank_name"]
-    
-    # studBranchname = request.form["branch_name"]
-    
-     studBranchCode = request.form["branch_code"]
-     studaccNo = request.form["account_number"]
-     studaccType = request.form["account_type"]
+        db.child("Tutors").child(person["uid"]).set(studentapplication)
+        disp=db.child("Tutors").get()
+        
+        print(disp.val())
      
-     
-      
-     studentapplication = {"Email":studemail, "Firstname":studfname, "Lastname":studlname, "Student Number": studNum, "ID Number":studIDnum, "Contact Number":studcontactNo,}
-     studentApplicationBanking = {"Tax Number"}
-     db.child("Tutors").child(person["uid"]).set(studentdata)
-     
-     
-
-     return redirect(url_for("welcome")) 
+        return redirect(url_for("applicationconfirm")) 
  
     else:
      return render_template("tutapplication.html")   
-
+   
  
 
 if __name__ == "__main__":

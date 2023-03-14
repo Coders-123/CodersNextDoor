@@ -6,7 +6,7 @@
 </head>
 
 <body>
-   <form class="wrapper fadeInDown">
+   <form class="wrapper fadeInDown" action="#" method="post">
     <div class="fadeIn second">
       <label for="DUTemail">DUTemail:</label><br>
       <input type="text" id="DUT-email" name="DUTemail"><br>
@@ -35,16 +35,10 @@
       <label for="account-holder">Account Holder:</label><br>
       <input type="text" id="account-holder" name="account_holder"><br>
   
-    <!----  <label for="bank-name">Bank Name:</label><br>
-      <input type="text" id="bank-name" name="bank_name"><br> -->
+      <label for="bank-name">Bank Name:</label><br>
+      <input type="text" id="bank-name" name="bank_name"><br> 
 
-      <label for="bank Name">Bank Name:</label><br>
-      <select name="Bank Name" id="bank_name">
-         <option value="volvo">Standard Bank</option>
-         <option value="saab">FNB</option>
-         <option value="opel">ABSA</option>
-         <option value="audi">Capitec</option>
-       </select> <br>
+     
   
      <!-- <label for="branch-name">Branch Name:</label><br>
       <input type="text" id="branch-name" name="branch_name"><br> -->
@@ -57,6 +51,21 @@
   
       <label for="account-type">Account Type:</label><br>
       <input type="text" id="account-type" name="account_type"><br>
+
+
+      <html>
+        <body>
+           <form action = "#" method = "POST" 
+              enctype = "multipart/form-data">
+              <input type = "file" name = "file" />
+           </form>
+        </body>
+     </html>
+
+
+
+
+
   </div>
   <input type="submit" class="fadeIn fourth">
 </div>
