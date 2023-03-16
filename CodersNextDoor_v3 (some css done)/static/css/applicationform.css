@@ -1,0 +1,65 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: url('pic.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+/* styles for main.css */
+
+/* general styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  .wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* styles for application.css */
+  
+  /* specific styles */
+  #DUT-email, #f-name, #l-name, #Student-num, #ID-num, #Contact,
+  #tax-number, #account-holder, #bank-name, #branch-code, #account-number, #account-type {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  /* media query for responsive design */
+  @media (max-width: 767px) {
+    .wrapper {
+      max-width: 100%;
+      padding: 10px;
+    }
+  }
