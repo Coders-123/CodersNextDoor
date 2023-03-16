@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+
+<body>
+   <form class="wrapper fadeInDown" action="#" method="post">
+    <div class="fadeIn second">
+      <label for="DUTemail">DUTemail:</label><br>
+      <input type="text" id="DUT-email" name="DUTemail"><br>
+  
+      <label for="fname">First name/s:</label><br>
+      <input type="text" id="f-name" name="fname"><br>
+  
+      <label for="lname">Last name:</label><br>
+      <input type="text" id="l-name" name="lname"><br>
+  
+      <label for="Snum">Student number:</label><br>
+      <input type="text" id="Student-num" name="Snum"><br>
+  
+      <label for="IDnum">Identity number:</label><br>
+      <input type="text" id="ID-num" name="IDnum"><br>
+  
+      <label for="Contact">Contact number:</label><br>
+      <input type="text" id="Contact" name="Contact"><br>
+      
+    <div class="fadeIn third">
+      <p><b> Banking details: </b></p>       
+  
+      <label for="tax-number">Tax/Personnel Number:</label><br>
+      <input type="text" id="tax-number" name="tax_number"><br>
+  
+      <label for="account-holder">Account Holder:</label><br>
+      <input type="text" id="account-holder" name="account_holder"><br>
+  
+      <label for="bank-name">Bank Name:</label><br>
+      <input type="text" id="bank-name" name="bank_name"><br> 
+
+     
+  
+     <!-- <label for="branch-name">Branch Name:</label><br>
+      <input type="text" id="branch-name" name="branch_name"><br> -->
+  
+      <label for="branch-code">Branch Code:</label><br>
+      <input type="text" id="branch-code" name="branch_code"><br>
+  
+      <label for="account-number">Account Number:</label><br>
+      <input type="text" id="account-number" name="account_number"><br>
+  
+      <label for="account-type">Account Type:</label><br>
+      <input type="text" id="account-type" name="account_type"><br>
+
+      <p><b> Job Details</b></p>  
+
+      
+        <label for="text">Please Provide previous work experience</label>
+        <textarea id="text" name="workexp"></textarea>
+        <br>
+         
+        <label for="text">Please Provide brief motivation as to why you would make a good choice for this position</label>
+        <textarea id="text" name="Motivation"></textarea>
+        <br>
+            
+
+      <html>
+        <body>
+           <form action = "#" method = "POST" 
+              enctype = "multipart/form-data">
+              <input type = "file" name = "file" />
+           </form>
+        </body>
+     </html>
+
+
+
+
+
+  </div>
+  <input type="submit" class="fadeIn fourth">
+</div>
+  </form>
+
+</body>
+
+</html>
