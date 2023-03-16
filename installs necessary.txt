@@ -1,0 +1,12 @@
+1)install pip
+-Once you've downloaded the get-pip.py file, navigate to the directory where it's located in the terminal or command prompt.
+-python get-pip.py
+
+2)pip install flask
+3)pip install pyrebase
+4)pip install pycyptodome
+5)pip install pyrebase4
+6)pip install Flask-Mail
+7)pip install Flask-WTF
+8)pip install firebase-admin
+9)pip install Flask-Session
