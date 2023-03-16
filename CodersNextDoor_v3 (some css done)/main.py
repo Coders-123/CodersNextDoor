@@ -32,6 +32,7 @@ config = {
   "measurementId": "G-0YRYZYELPH"
 }
 
+mailapp=Flask(__name__)
 
 
 firebase = pyrebase.initialize_app(config)
@@ -39,6 +40,8 @@ auth = firebase.auth()
 db = firebase.database()
 
 person = {"is_logged_in": False, "name": "", "email": "", "uid": ""}
+
+
 #login route
 @app.route("/")
 def login():
@@ -62,9 +65,30 @@ def login():
         except:
             flash('Login failed. Please check your credentials and try again.', 'error')
             return redirect(url_for('login'))
-
-   
  return render_template("login.html")
+
+""" start of multi-line comment out
+ return render_template("login.html")
+
+ #basic functionality to move from page to page with buttons 
+@app.route("/adminlogin", methods=["POST","GET"])
+def adminlogin():
+ if request.method=="POST":
+    return redirect(url_for("adminhome"))
+ else:
+   return render_template("adminlogin.html")
+ 
+  
+@app.route("/adminhome" ,methods=["GET","POST"])
+def adminhome():
+      #viewbankbtn= request.form["viewbankdetails"]
+      if request.method=="POST":
+          return redirect(url_for("signup"))
+      else:
+       return render_template("adminhome.html")    
+
+"""   
+
    
 #signup route
 @app.route("/signup")
@@ -125,15 +149,15 @@ def register():
            
             user = auth.sign_in_with_email_and_password(email, password)
 
-            auth.send_email_verification(user['idToken'])
-            flash('Verification email sent. Please check your inbox.', 'success')
-            return redirect(url_for('login'))
+  #         auth.send_email_verification(user['idToken'])
+   #         flash('Verification email sent. Please check your inbox.', 'success')
+    #        return redirect(url_for('login'))
            
             global person
             person["is_logged_in"] = True
             person["email"] = user["email"]
             person["uid"] = user["localId"]
-            person["name"] = name
+     #      person["name"] = name
             
             data = {"name": name, "email": email}
             db.child("users").child(person["uid"]).set(data)
@@ -169,27 +193,42 @@ def applicationpage():
         studIDno=request.form["IDnum"]
         studcontact=request.form["Contact"]
         
+        studbankname=request.form["bank_name"]
+        studbranchcode=request.form["branch_code"]
+        studaccnumber=request.form["account_number"]
+        studworkexp=request.form["workexp"]
+        studmotivation=request.form["Motivation"]
         #banking details
-        #studtaxno=request.form["tax_number"]
+        studtaxno=request.form["tax_number"]
+        studaccholder=request.form["account_holder"]
         
-        studbankname= request.form["bank_name"]
         
         #studfile= request.files["file"]
         
-        studentapplication={"email":studemail,"First Name":studfname,"Last Name":studlname,"Student Number":studNo, "ID Number":studIDno, "Contact Number":studcontact}
-       # StudentBankDetails={}
+        studentapplication={"email":studemail,"First Name":studfname,"Last Name":studlname,"Student Number":studNo, "ID Number":studIDno, "Contact Number":studcontact,"Work Experience":studworkexp,"Motivation":studmotivation}
+        StudentBankDetails={"Bank Name":studbankname, "Branch Code":studbranchcode, "Acount Number":studaccnumber, "Tax Number":studtaxno, "Account Holder Name":studaccholder}
         
-        
+        db.child("Financial Data").child(person["uid"]).set(StudentBankDetails)
         db.child("Tutors").child(person["uid"]).set(studentapplication)
-        disp=db.child("Tutors").get()
         
-        print(disp.val())
-     
+
         return redirect(url_for("applicationconfirm")) 
  
     else:
      return render_template("tutapplication.html")   
     
+
+# View to display table of applicants
+@app.route('/table')
+def table():
+
+        disp=db.child("Tutors").get()
+        
+        print(disp.val())
+
+        ordered_dict = disp.val()
+
+        return render_template('table.html', ordered_dict=ordered_dict)  
 
 #for password reset
 
