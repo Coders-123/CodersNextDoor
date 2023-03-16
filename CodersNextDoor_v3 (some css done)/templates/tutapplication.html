@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Coders Next Door | Application Page</title>
+  <title>Application Page</title>
   <link rel="stylesheet" href="{{ url_for('static', filename = 'css/applicationform.css') }}">
 </head>
 
 <body>
    <form class="wrapper fadeInDown" action="#" method="post">
     <div class="fadeIn second">
-      <label for="DUTemail">DUT Email:</label><br>
+      <label for="DUTemail">DUT-Email:</label><br>
       <input type="text" id="DUT-email" name="DUTemail"><br>
   
       <label for="fname">First name/s:</label><br>
@@ -25,7 +25,8 @@
   
       <label for="Contact">Contact number:</label><br>
       <input type="text" id="Contact" name="Contact"><br>
-      
+    
+    <br><br>  
     <div class="fadeIn third">
       <p><b> Banking details: </b></p>       
   
@@ -52,6 +53,18 @@
       <label for="account-type">Account Type:</label><br>
       <input type="text" id="account-type" name="account_type"><br>
 
+      <br><br>
+      <p><b> Job Details:</b></p>  
+
+      
+        <label for="text">Please Provide previous work experience:</label><br>
+        <textarea id="text" name="workexp"></textarea>
+        <br>
+         
+        <label for="text">Please Provide brief motivation as to why you would make a good choice for this position:</label><br>
+        <textarea id="text" name="Motivation"></textarea>
+        <br>
+            
 
       <html>
         <body>
