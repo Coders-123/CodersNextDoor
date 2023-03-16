@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Coders Next Door | Login - HR </title>
+	<link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css') }}">
+</head>
+<body>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+    <h2 class="active"> Sign In </h2>
+
+    <div class="fadeIn first">
+      <img src="{{ url_for('static', filename = 'css/user.png') }}" id="icon" alt="User Icon" />
+    </div>
+
+
+    <form action="http://127.0.0.1:5000/result" method="POST">
+      <input type="email" id="login" class="fadeIn second" name="email" placeholder="email">
+      <input type="password" id="password" class="fadeIn third" name="pass" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="HR Log In">
+    </form>
+
+    <p>Forgot your password? <a href="{{ url_for('forgot_password') }}">Reset it here</a>.</p>
+
+  </div>
+</div>
+</body>
+</html>
