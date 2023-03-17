@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'welcome.css')}}">
+ 	<link rel="stylesheet" type="text/css" href="../static/welcome.css">
+
+	<!--stylesheet-->
+	<link rel="stylesheet" type="text/css" href="../static/css/nav-bar.css">
+<link rel="stylesheet" type="text/css" href="../static/css/footer.css">
+</head>
+<body>
+
+	<!--Nav bar-->
+	<div id="mySidenav" class="sidenav">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">Home</a>
+		<a href="#">Joblist</a>
+		<a href="#">My application</a>
+		<a href="#">Contact</a>
+		
+	  </div>
+	  <div class="content">
+  
+
+<div class="main">
+	<h1 class="name">Hi, {{name}}</h1><hr style="width: 30%">
+	<h3 class="email">{{email}}</h3>
+
+	<div class="content">
+		<h1>Tutor Application</h1>
+		<p>Title: Tutor -Faculty of Accounting ad Informatics
+
+			Job Description:
+			We are seeking a highly motivated and experienced tutor to join our team at Durban University of Technology. As a tutor, you will be responsible for assisting students in Application development 2 with their coursework, assignments, and exam preparation.
+			<br></br>
+			Responsibilities:
+			<br></br>
+			Conduct tutorial sessions for Computer Science courses
+			Assist students with coursework, assignments, and exam preparation
+			Provide feedback and grading on student work
+			Maintain accurate records of student progress and attendance
+			Collaborate with professors to ensure course material is covered appropriately
+			Stay up-to-date with changes in course material and teaching methods
+			Attend training and professional development sessions as required
+			<!--Requirements:
+			<br></br>
+			Bachelor's degree in Information and Communication Technology or related field
+			Strong knowledge of programming languages such as C#, Python, and Html
+			Excellent communication and interpersonal skills
+			Ability to work independently and as part of a team
+			Previous tutoring or teaching experience is preferred
+			Proficient in Microsoft Office and other related software
+			Willingness to work flexible hours, including evenings and weekends
+			If you meet the above requirements and are passionate about helping students succeed in Application development, we encourage you to apply for this exciting opportunity.
+		-->.</p>
+
+		</div>
+
+		<!-- Add the button here -->
+		<form action="http://127.0.0.1:5000/application" method="GET">
+			<button class="button1" type="submit-button">Go to application form</button>
+		</form>
+	
+	</div>
+	
+
+<!--footer-->
+
+
+<footer>
+	<i class="material-icons">cloud</i>
+<i class="material-icons">favorite</i>
+<i class="material-icons">attachment</i>
+<i class="material-icons">computer</i>
+<i class="material-icons">traffic</i>
+
+		<!--<p>info@dut.ac.za</p>-->
+	</div>
+</footer>
+
+<!-- Javascript -->
+ <script src="../Screenshots/Script/Nav-bar.js"></script>
+ <script src="../Screenshots/Script/Footer.js"></script>
+
+</body>
+</html>
